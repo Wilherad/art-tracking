@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtLink | Real-time Tracking</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .status-bar {
+            margin: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .line {
+            position: absolute;
+            top: 5px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: #eee;
+            z-index: 0;
+        }
+
+        .node {
+            text-align: center;
+            font-size: 12px;
+            z-index: 1;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .node div {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            transition: background 0.3s ease;
+        }
+
+        .node.active div {
+            background: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.6);
+        }
+
+        .info {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #d9534f;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Artistic Logistics Tracker</h2>
+        <p id="track-id">Loading tracking info...</p>
+
+        <div class="status-bar">
+            <div class="line"></div>
+            <div class="node active" id="node-1">
+                <div></div>Departed
+            </div>
+            <div class="node" id="node-2">
+                <div></div>Transit
+            </div>
+            <div class="node" id="node-3">
+                <div></div>Customs
+            </div>
+            <div class="node" id="node-4">
+                <div></div>Delivered
+            </div>
+        </div>
+
+        <div class="info">
+            <p><strong>Status:</strong> <span id="status-text">Initializing connection...</span></p>
+            <p class="error" id="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- 引入外部 JS 文件 -->
+    <script src="tracking.js"></script>
+
+</body>
+
+</html>
